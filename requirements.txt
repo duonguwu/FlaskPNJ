@@ -1,6 +1,4 @@
 Flask
-flask_sqlalchemy
-flask_marshmallow
 flask_cors
 numpy
 opencv-python
