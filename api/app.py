@@ -1,6 +1,4 @@
 from flask import Flask, jsonify, request
-from flask_sqlalchemy import SQLAlchemy
-from flask_marshmallow import Marshmallow
 
 from flask_cors import CORS
 import numpy as np
@@ -16,11 +14,11 @@ app.json.ensure_ascii = False
 # Cho phép tất cả các nguồn
 CORS(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/flask'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/flask'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
-ma = Marshmallow(app)
+# db = SQLAlchemy(app)
+# ma = Marshmallow(app)
 
 
 @app.route('/', methods = ['GET'])
