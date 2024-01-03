@@ -9,10 +9,6 @@ from ultralytics import YOLO
 from PIL import Image
 from collections import Counter
 import matplotlib.pyplot as plt
-import io
-
-import os
-import datetime
 
 app = Flask(__name__)
 app.json.ensure_ascii = False
