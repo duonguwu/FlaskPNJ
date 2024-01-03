@@ -16,11 +16,11 @@ app.json.ensure_ascii = False
 # Cho phép tất cả các nguồn
 CORS(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/flask'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/flask'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
-ma = Marshmallow(app)
+# db = SQLAlchemy(app)
+# ma = Marshmallow(app)
 
 
 @app.route('/', methods = ['GET'])
