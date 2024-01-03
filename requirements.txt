@@ -1,5 +1,9 @@
 Flask
-SQLAlchemy
-Marshmallow
+flask_sqlalchemy
+flask_marshmallow
+flask_cors
+numpy
+opencv-python
 ultralytics
+Pillow
 matplotlib
