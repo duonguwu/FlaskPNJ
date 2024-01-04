@@ -7,6 +7,8 @@ from ultralytics import YOLO
 from PIL import Image
 from collections import Counter
 import matplotlib.pyplot as plt
+import io
+import base64
 
 app = Flask(__name__)
 app.json.ensure_ascii = False
@@ -66,8 +68,12 @@ def detect_objects():
 
         # Optional: Save the annotated image
         im_array = results[0].plot()  # Sử dụng results[0] thay vì result
-        im = Image.fromarray(im_array[..., ::-1])   
-        im.save('annotated_image.jpg')
+        im = Image.fromarray(im_array[..., ::-1]) 
+        buffered = io.BytesIO()
+        im.save(buffered, format="PNG")  # Lưu hình ảnh vào buffer dưới định dạng PNG
+        img_str = base64.b64encode(buffered.getvalue()).decode('utf-8')  # Chuyển đổi thành Base64
+        
+        # im.save('annotated_image.jpg')
 
         # Define the path or URL to the saved image
         # saved_image_path = 'received_image.jpg'  # Update this with the actual path or URL
@@ -75,6 +81,7 @@ def detect_objects():
         # Return a JSON response
         response_data = {
             'object_counts': object_counts,
+            'image': img_str
             # 'saved_image_path': saved_image_path
         }
         return jsonify(response_data), 200
