@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import io
 import base64
 
+
 app = Flask(__name__)
 app.json.ensure_ascii = False
 
