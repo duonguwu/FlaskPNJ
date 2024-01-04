@@ -51,6 +51,16 @@ def detect_objects():
         # Decode the image
         image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
 
+        # Convert the OpenCV image (numpy array) to a PIL image
+        image_pil = Image.fromarray(image)
+
+        # Resize the image
+        max_size = (800, 800)
+        image_pil.thumbnail(max_size, Image.ANTIALIAS)
+
+        # Convert the PIL image back to a numpy array
+        image = np.array(image_pil)
+
         # Perform object detection
         results = model.predict(image)
 
